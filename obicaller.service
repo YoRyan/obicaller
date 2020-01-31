@@ -4,7 +4,7 @@ Description=Talking caller ID for OBiTALK OBi200 and Raspberry Pi (or other Linu
 [Service]
 User=pi
 Group=pi
-ExecStart=/usr/local/bin/obicaller.sh 1514 -v en-us -s 140
+ExecStart=/usr/local/bin/obicaller.sh 0.0.0.0 1514 -v en-us -s 140
 Restart=always
 RestartSec=30s
 

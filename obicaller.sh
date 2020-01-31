@@ -9,7 +9,7 @@ host="$1"
 port="$2"
 shift 2
 eargs="$@"
-(python3 - $port <<EOF
+(python3 - $host $port <<EOF
 from socketserver import BaseRequestHandler, UDPServer
 from sys import argv
 
