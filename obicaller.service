@@ -1,0 +1,12 @@
+[Unit]
+Description=Talking caller ID for OBiTALK OBi200 and Raspberry Pi (or other Linux)
+
+[Service]
+User=pi
+Group=pi
+ExecStart=/usr/local/bin/obicaller.sh 1514 -v en-us -s 140
+Restart=always
+RestartSec=30s
+
+[Install]
+WantedBy=multi-user.target
