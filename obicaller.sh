@@ -25,6 +25,7 @@ EOF
 )       | grep --line-buffered --color=never -a '^<7> \[SLIC\] CID to deliver:' \
         | stdbuf -oL cut -d' ' -f6- \
         | sed -u s/+1//g \
+        | sed -u "s/''/private caller/" \
         | sed -u 's/1\([0-9]\{10\}\)/\1/g' \
         | sed -u -e ':loop' -e 's/\([0-9]\)\([0-9]\)/\1 \2/g' -e 't loop' \
         | while read caller; do \
