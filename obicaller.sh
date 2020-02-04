@@ -29,5 +29,8 @@ EOF
         | sed -u 's/1\([0-9]\{10\}\)/\1/g' \
         | sed -u -e ':loop' -e 's/\([0-9]\)\([0-9]\)/\1 \2/g' -e 't loop' \
         | while read caller; do \
+                hr=`date +%H`; \
+                if (( $hr >= 8 && $hr < 22 )); then echo $caller; fi; done \
+        | while read caller; do \
                 espeak $eargs "Call from $caller" --stdout | aplay 2>/dev/null; done
 exit 0
